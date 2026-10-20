@@ -10,7 +10,8 @@ Um e-commerce conceitual de moda masculina premium criado para demonstrar design
 - CSS customizado e Lucide Icons
 - Carrinho persistente via `localStorage`
 - Campanha editorial original gerada por IA e salva localmente em WebP de 1024 × 1536 px, otimizada responsivamente com Next.js
-- Fotografias ilustrativas de catálogo do Unsplash
+- Sete fotografias de produtos geradas por IA, em WebP local de 1024×1536 px
+- Hoodie Studio ainda com fotografia ilustrativa do Unsplash
 
 ## Rodar localmente
 
@@ -23,7 +24,7 @@ npm run dev
 
 Acesse http://localhost:3000. `npm run build` faz o build de produção e `npm run typecheck` verifica TypeScript.
 
-## Experiências da V0.3
+## Experiências da V0.4
 
 - Homepage editorial responsiva, com narrativa da marca e coleções
 - Catálogo com categorias e ordenação
@@ -69,3 +70,13 @@ A V0.3.1 continha um lookbook com camiseta estampada de outra marca e um retrato
 - Verificar hero, imagem principal do lookbook, segunda imagem do lookbook e campanha.
 - Conferir enquadramento de rosto e roupa no celular e desktop.
 - Testar a sacola e a página de produtos. O catálogo continua com imagens externas ilustrativas.
+
+## V0.4 — Catálogo e fluxo demonstrativo
+
+Sete produtos receberam imagens autorais em `public/products`, com direção de arte consistente, sem marcas de terceiros. A exceção é o Hoodie Studio, que permanece com imagem do Unsplash enquanto não temos uma fotografia equivalente própria.
+
+As páginas individuais exibem fichas conceituais de produto e ampliam a mesma fotografia, com aviso explícito para não fingir ângulos inexistentes.
+
+O checkout em `/checkout` é puramente demonstrativo: lê a sacola do navegador, simula frete e conclui uma jornada **sem coletar dados pessoais, sem pagamento e sem pedido real**.
+
+O estudo de caso está em `/projeto` e descreve decisões técnicas e visuais sem métricas inventadas.

@@ -55,3 +55,15 @@
  .v3-sticky-buy button { min-width:175px; font-size:9px; }
 }
 @media(prefers-reduced-motion:reduce){.v3-photo-open img { transition:none; }}
+
+/* V0.4: consistent catalog detail crop, information hierarchy */
+.v3-photo-open[data-detail="true"] img{object-fit:cover;transform:scale(1.6);object-position:center 29%;}
+.v3-gallery-thumbs button[data-detail="true"] img{object-fit:cover;transform:scale(1.65);object-position:center 29%;}
+.v3-modal-image[data-detail="true"] img{object-fit:cover;transform:scale(1.18);object-position:center 25%;}
+.v4-specs{padding:0 0 5px;margin:12px 0 18px;display:flex;flex-direction:column;gap:10px;}
+.v4-specs>div{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding-bottom:9px;border-bottom:1px dashed #d5cec3;}
+.v4-specs dt{font-size:11px;color:#80796f;font-weight:500;}
+.v4-specs dd{font-size:11px;color:#302e29;text-align:right;margin:0;font-weight:600;}
+.detail-accordions details small{display:block;margin-bottom:19px;color:#878076;font-size:10px;line-height:1.6;}
+.detail-copy .detail-story{max-width:55ch}
+@media(prefers-reduced-motion:reduce){.v3-photo-open[data-detail="true"] img{transition:none}}
