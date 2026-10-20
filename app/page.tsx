@@ -135,15 +135,15 @@ export default function Home() {
       <section className="hero" aria-label="Coleção VÉRTICE">
         <div className="hero-copy">
           <div className="hero-index"><span className="line"/> EST. 2026 — SÃO PAULO, BRASIL</div>
-          <p className="hero-eyebrow">UMA NOVA FORMA DE SE VESTIR</p>
+          <p className="hero-eyebrow">UMA NOVA FORMA DE SE VESTIR <span className="v3-edition">· DROP 001</span></p>
           <h1>MENOS<br/>RUÍDO.<br/><em>MAIS</em><br/>ESSÊNCIA<span className="period">.</span></h1>
           <p className="hero-description">Peças que não precisam dizer muito para expressar tudo. Design atemporal para quem constrói o próprio caminho.</p>
           <button className="pill-button hero-cta" onClick={() => goToCollection()}>EXPLORAR COLEÇÃO <ArrowUpRight size={17}/></button>
           <div className="hero-bottom">001 — 008 <span>DESIGNED TO BE DIFFERENT</span></div>
         </div>
         <div className="hero-photo">
-          <Image src="https://images.unsplash.com/photo-1488161628813-04466f872be2" alt="Editorial de moda com composição arquitetônica minimalista" fill sizes="(max-width: 900px) 100vw, 55vw" priority className="cover-photo"/>
-          <div className="hero-photo-shade"/>
+          <Image src="/editorial/noir.jpg" alt="Campanha VÉRTICE: moda masculina preta em cenário arquitetônico de concreto" fill sizes="(max-width: 900px) 100vw, 55vw" priority className="cover-photo"/>
+          <div className="hero-photo-shade"/><div className="v3-photo-note">THE SHAPE OF SIMPLICITY <span>↗</span></div>
           <span className="hero-vertical">VÉRTICE / EDITION Nº 001</span>
           <div className="photo-caption"><span>01 / THE NEW ESSENTIALS</span><ArrowDown size={19}/></div>
         </div>
@@ -169,7 +169,7 @@ export default function Home() {
               <Link className="product-image-button" href={`/produto/${product.slug}`} aria-label={`Abrir página de ${product.name}`}><Image src={product.image} alt={`Imagem ilustrativa: ${product.name}`} fill sizes="(max-width: 600px) 48vw, (max-width: 1100px) 32vw, 24vw" className="cover-photo" /></Link>
               {product.tag && <span className="product-tag">{product.tag}</span>}
               <button className={`favorite-button ${favorites.includes(product.id) ? "selected" : ""}`} onClick={() => toggleFavorite(product.id)} aria-label={`${favorites.includes(product.id) ? "Remover" : "Adicionar"} ${product.name} ${favorites.includes(product.id) ? "dos" : "aos"} favoritos`} aria-pressed={favorites.includes(product.id)}><Heart size={18} strokeWidth={1.5} fill={favorites.includes(product.id) ? "currentColor" : "none"}/></button>
-              <button className="quick-add" onClick={() => openQuickView(product)}>ADICIONAR À SACOLA <Plus size={16}/></button>
+              <button className="quick-add" onClick={() => openQuickView(product)}>ESCOLHER TAMANHO <Plus size={16}/></button>
             </div>
             <Link className="product-copy" href={`/produto/${product.slug}`}><span><strong>{product.name}</strong><small>{product.descriptor}</small></span><b>{formatPrice(product.price)}</b></Link>
           </article>
@@ -182,13 +182,13 @@ export default function Home() {
         <div className="v2-lb-top"><span>VÉRTICE JOURNAL / EDIÇÃO 002</span><span>EST. 2026 — BRASIL</span></div>
         <div className="v2-lb-heading"><div><p className="eyebrow">UM ESTUDO SOBRE O ESSENCIAL</p><h2>Peças para<br/><em>viver histórias.</em></h2></div><p>Não é sobre ter mais. É sobre escolher o que fica. Uma nova maneira de enxergar formas, texturas e presença.</p></div>
         <div className="v2-lb-grid">
-          <div className="v2-lb-large"><Image src={products[1].image} alt="Referência editorial ilustrativa de camisa masculina" fill sizes="(max-width: 700px) 90vw, 60vw" className="cover-photo"/><span>01 / THE DAILY UNIFORM</span></div>
-          <div className="v2-lb-small"><Image src={products[2].image} alt="Referência editorial ilustrativa de peça de malha" fill sizes="(max-width: 700px) 90vw, 35vw" className="cover-photo"/><span>02 / THE OBJECT OF INTENTION</span></div>
+          <div className="v2-lb-large"><Image src="/editorial/sand.jpg" alt="Editorial VÉRTICE: camisa bege e calça clara em concreto arquitetônico" fill sizes="(max-width: 700px) 90vw, 60vw" className="cover-photo"/><span>01 / THE DAILY UNIFORM</span></div>
+          <div className="v2-lb-small"><Image src="/editorial/noir.jpg" alt="Editorial VÉRTICE: conjunto preto em escadaria de concreto" fill sizes="(max-width: 700px) 90vw, 35vw" className="cover-photo"/><span>02 / THE OBJECT OF INTENTION</span></div>
           <div className="v2-lb-note"><span>CURADORIA / 001</span><strong>Vestir-se bem é um gesto silencioso.</strong><button onClick={() => goToCollection()}>CONHEÇA A COLEÇÃO <ArrowUpRight size={17}/></button><b aria-hidden="true">V↗</b></div>
-        </div><p className="v2-lb-bottom">VÉRTICE / IMAGENS ILUSTRATIVAS / PROJETO CONCEITUAL</p>
+        </div><p className="v2-lb-bottom">VÉRTICE / CAMPANHA VISUAL AUTORAL GERADA POR IA / PROJETO CONCEITUAL</p>
       </section>
       <section className="campaign" aria-label="Editorial VÉRTICE">
-        <div className="campaign-image"><Image src="https://images.unsplash.com/photo-1612541122840-bf7071c968a2" fill sizes="(max-width: 800px) 100vw, 50vw" alt="Fotografia editorial com camisa em composição minimalista" className="cover-photo"/></div>
+        <div className="campaign-image"><Image src="/editorial/sand.jpg" fill sizes="(max-width: 800px) 100vw, 50vw" alt="Campanha VÉRTICE: look masculino bege em arquitetura minimalista" className="cover-photo"/></div>
         <div className="campaign-copy"><span className="eyebrow light">UM ESTILO. INFINITAS POSSIBILIDADES.</span><span className="campaign-number">V / 001</span><h2>O ESTILO<br/>NÃO GRITA.<br/><em>MARCA.</em></h2><p>Uma boa peça transforma a presença, não a personalidade. Descubra o poder de vestir o que realmente importa.</p><button className="light-link" onClick={() => goToCollection("Camisas")}>DESCUBRA A COLEÇÃO <ArrowUpRight size={19}/></button></div>
       </section>
 
@@ -200,7 +200,7 @@ export default function Home() {
 
       <section className="newsletter"><div><span className="eyebrow">FAÇA PARTE DO MOVIMENTO</span><h2>Além do <em>óbvio.</em></h2><p>Receba novidades da nossa coleção conceitual.</p></div><form onSubmit={(event) => { event.preventDefault(); setNewsletterDone(true); }}><label htmlFor="email">SEU MELHOR E-MAIL</label><div className="email-field"><input id="email" type="email" placeholder="voce@exemplo.com" autoComplete="email" required disabled={newsletterDone}/><button type="submit" aria-label="Cadastrar interesse" disabled={newsletterDone}>{newsletterDone ? <Check size={23}/> : <ArrowRight size={25}/>}</button></div><small>{newsletterDone ? "Obrigado! Este formulário é apenas uma demonstração; nenhum dado foi enviado." : "Experiência demonstrativa. Nenhum e-mail será enviado ou armazenado."}</small></form></section>
 
-      <footer className="site-footer"><div className="footer-top"><div><button className="footer-logo" onClick={() => scrollToSection("topo")}>VÉRTICE<span>.</span></button><p>O essencial é o que permanece.</p></div><div className="footer-links"><div><strong>EXPLORE</strong><button onClick={() => goToCollection()}>Coleção</button><button onClick={() => goToCollection("Camisetas")}>Essenciais</button><button onClick={() => scrollToSection("lookbook")}>Lookbook</button><button onClick={() => scrollToSection("manifesto")}>Nossa essência</button></div><div><strong>PROJETO</strong><a href="https://github.com/FelipeAlves4/VERTICE" target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={13}/></a><a href="https://unsplash.com/license" target="_blank" rel="noreferrer">Créditos das imagens <ArrowUpRight size={13}/></a></div></div></div><div className="footer-bottom"><span>© 2026 VÉRTICE — PROJETO CONCEITUAL</span><span>PORTFÓLIO / NÃO É UMA LOJA REAL</span><span>DESIGNED WITH INTENTION ↗</span></div></footer>
+      <footer className="site-footer"><div className="footer-top"><div><button className="footer-logo" onClick={() => scrollToSection("topo")}>VÉRTICE<span>.</span></button><p>O essencial é o que permanece.</p></div><div className="footer-links"><div><strong>EXPLORE</strong><button onClick={() => goToCollection()}>Coleção</button><button onClick={() => goToCollection("Camisetas")}>Essenciais</button><button onClick={() => scrollToSection("lookbook")}>Lookbook</button><button onClick={() => scrollToSection("manifesto")}>Nossa essência</button></div><div><strong>PROJETO</strong><a href="https://github.com/FelipeAlves4/VERTICE" target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={13}/></a><a href="https://unsplash.com/license" target="_blank" rel="noreferrer">Licença das fotos de catálogo <ArrowUpRight size={13}/></a></div></div></div><div className="footer-bottom"><span>© 2026 VÉRTICE — PROJETO CONCEITUAL</span><span>PORTFÓLIO / NÃO É UMA LOJA REAL</span><span>DESIGNED WITH INTENTION ↗</span></div></footer>
 
       {menuOpen && <div className="overlay" onMouseDown={() => setMenuOpen(false)}><aside className="side-panel mobile-menu" role="dialog" aria-modal="true" aria-label="Menu" onMouseDown={(event) => event.stopPropagation()}><div className="panel-head"><span>MENU</span><button onClick={() => setMenuOpen(false)} aria-label="Fechar menu"><X/></button></div><div className="mobile-menu-links"><button onClick={() => goToCollection()}>Coleção <ArrowUpRight/></button><button onClick={() => goToCollection("Camisetas")}>Essenciais <ArrowUpRight/></button><button onClick={() => { setMenuOpen(false); scrollToSection("lookbook"); }}>Lookbook <ArrowUpRight/></button><button onClick={() => { setMenuOpen(false); scrollToSection("manifesto"); }}>Nossa essência <ArrowUpRight/></button></div><p>VÉRTICE — EST. 2026</p></aside></div>}
 
