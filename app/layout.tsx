@@ -3,6 +3,7 @@ import { DM_Sans, Manrope, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import "./v2.css";
 import "./v3.css";
+import "./v4.css";
 
 const sans = DM_Sans({ subsets: ["latin"], variable: "--font-body", display: "swap" });
 const heading = Manrope({ subsets: ["latin"], variable: "--font-heading", display: "swap" });
