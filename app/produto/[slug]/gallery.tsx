@@ -6,41 +6,45 @@ import { ArrowLeft, ArrowRight, Maximize2, X } from "lucide-react";
 import type { Product } from "@/lib/products";
 
 export default function ProductGallery({ product }: { product: Product }) {
-  const photos = [product.image, product.alternativeImage].filter((url): url is string => Boolean(url));
+  // Duas vistas da MESMA imagem original: foto completa e detalhe ampliado.
+  // Não apresentamos recortes como se fossem fotografias de outro ângulo.
+  const frames = [
+    { id: "full", name: "VISÃO COMPLETA", detail: false },
+    { id: "detail", name: "AMPLIAÇÃO", detail: true },
+  ] as const;
   const [active, setActive] = useState(0);
   const dialog = useRef<HTMLDialogElement>(null);
-
-  function openZoom() { dialog.current?.showModal(); }
-  function closeZoom() { dialog.current?.close(); }
-  function move(delta: number) {
-    setActive((current) => (current + delta + photos.length) % photos.length);
-  }
+  const current = frames[active];
+  function move(delta: number) { setActive((i) => (i + delta + frames.length) % frames.length); }
 
   return <div className="detail-gallery v3-gallery">
     <div className="v3-photo-frame">
-      <button type="button" className="v3-photo-open" onClick={openZoom} aria-label={`Ampliar fotografia ${active+1} de ${product.name}`}>
-        <Image src={photos[active]} alt={`Imagem ilustrativa de ${product.name}, referência ${active + 1}`}
-          fill sizes="(max-width:820px) 94vw, 48vw" priority={active === 0} className="v3-zoom-target"/>
-        <span className="v3-photo-counter">0{active+1} / 0{photos.length}</span>
+      <button type="button" className="v3-photo-open" data-detail={current.detail} onClick={() => dialog.current?.showModal()}
+        aria-label={`Ampliar ${current.name.toLowerCase()} de ${product.name}`}>
+        <Image src={product.image} alt={`Fotografia conceitual de ${product.name}`} fill
+          sizes="(max-width:820px) 94vw, 48vw" priority={active === 0} quality={85} className="v3-zoom-target"/>
+        <span className="v3-photo-counter">0{active + 1} / 02 — {current.name}</span>
         <span className="v3-zoom-hint"><Maximize2 size={16}/> AMPLIAR</span>
       </button>
     </div>
-    {photos.length > 1 && <div className="v3-gallery-controls">
-      <div className="v3-gallery-thumbs">{photos.map((url, i) =>
-        <button key={url} type="button" aria-label={`Selecionar foto ${i+1}`} aria-pressed={active===i} onClick={()=>setActive(i)}>
-          <Image src={url} alt="" fill sizes="84px"/>
-        </button>
-      )}</div>
-      <div className="v3-gallery-arrows"><button type="button" onClick={()=>move(-1)} aria-label="Imagem anterior"><ArrowLeft size={18}/></button><button type="button" onClick={()=>move(1)} aria-label="Próxima imagem"><ArrowRight size={18}/></button></div>
-    </div>}
-    <p>Fotografias ilustrativas. As peças, imagens e especificações são parte de um projeto conceitual.</p>
-    <dialog ref={dialog} className="v3-photo-dialog" aria-label={`Visualização ampliada de ${product.name}`}
-      onClick={(event) => { if (event.target === event.currentTarget) closeZoom(); }}
-      onKeyDown={(event) => { if(event.key==="ArrowRight")move(1); if(event.key==="ArrowLeft")move(-1); }}>
-      <div className="v3-modal-top"><span>VÉRTICE / GALERIA EDITORIAL — {active+1}/{photos.length}</span><button type="button" onClick={closeZoom} aria-label="Fechar imagem ampliada"><X size={24}/></button></div>
-      <div className="v3-modal-image"><Image src={photos[active]} alt={`Imagem ampliada de ${product.name}`} fill sizes="90vw" quality={85}/></div>
+    <div className="v3-gallery-controls">
+      <div className="v3-gallery-thumbs" aria-label="Vistas da peça">
+        {frames.map((frame, i) => <button key={frame.id} type="button" data-detail={frame.detail}
+          aria-pressed={i===active} aria-label={frame.detail ? "Ver ampliação da mesma foto" : "Ver foto completa"} onClick={() => setActive(i)}>
+          <Image src={product.image} alt="" fill sizes="84px" quality={85}/>
+        </button>)}
+      </div>
+      <div className="v3-gallery-arrows"><button type="button" onClick={() => move(-1)} aria-label="Vista anterior"><ArrowLeft size={18}/></button><button type="button" onClick={() => move(1)} aria-label="Próxima vista"><ArrowRight size={18}/></button></div>
+    </div>
+    <p>Imagem conceitual de IA ou fotografia ilustrativa. A ampliação é um recorte da mesma foto, não um segundo ângulo da peça.</p>
+    <dialog ref={dialog} className="v3-photo-dialog" aria-label={`Imagem ampliada de ${product.name}`}
+      onClick={(event) => { if (event.target === event.currentTarget) dialog.current?.close(); }}
+      onKeyDown={(event) => { if(event.key==="ArrowRight") move(1); if(event.key==="ArrowLeft") move(-1); }}>
+      <div className="v3-modal-top"><span>VÉRTICE / {current.name} — {active+1}/2</span><button type="button" onClick={() => dialog.current?.close()} aria-label="Fechar"><X size={24}/></button></div>
+      <div className="v3-modal-image" data-detail={current.detail}><Image src={product.image} alt={`Imagem conceitual ampliada de ${product.name}`} fill sizes="90vw" quality={85}/></div>
       <div className="v3-modal-bottom"><span>{product.name.toUpperCase()}</span><div>
-        {photos.length > 1 && <><button type="button" onClick={()=>move(-1)} aria-label="Foto anterior"><ArrowLeft/></button><button type="button" onClick={()=>move(1)} aria-label="Foto seguinte"><ArrowRight/></button></>}
+        <button type="button" onClick={() => move(-1)} aria-label="Vista anterior"><ArrowLeft/></button>
+        <button type="button" onClick={() => move(1)} aria-label="Próxima vista"><ArrowRight/></button>
       </div></div>
     </dialog>
   </div>;
