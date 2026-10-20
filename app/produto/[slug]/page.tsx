@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, ShoppingBag } from "lucide-react";
 import { getProductBySlug, products, formatPrice } from "@/lib/products";
 import AddToBag from "./add-to-bag";
+import ProductGallery from "./gallery";
 import "./product.css";
 
 type Props = { params: Promise<{slug:string}> };
@@ -32,9 +33,9 @@ export default async function ProductPage({params}:Props){
   <header className="detail-nav"><Link className="detail-logo" href="/">VÉRTICE<span>.</span></Link><div><Link href="/#colecao"><ArrowLeft size={17}/> COLEÇÃO</Link><Link href="/?sacola=1"><ShoppingBag size={20}/> SACOLA</Link></div></header>
   <nav className="detail-crumb" aria-label="Caminho"><Link href="/">INÍCIO</Link> / <Link href="/#colecao">COLEÇÃO</Link> / <span>{product.name.toUpperCase()}</span></nav>
   <section className="detail-layout">
-   <div className="detail-gallery"><div className="detail-photo"><Image src={product.image} alt={`Imagem ilustrativa de ${product.name}`} fill sizes="(max-width:820px) 95vw, 49vw" priority/><span>01 / ESSENTIALS</span></div><div className="detail-photo detail-photo-second"><Image src={product.alternativeImage||product.image} alt={`Referência editorial complementar para ${product.name}`} fill sizes="(max-width:820px) 95vw, 49vw"/><span>02 / DETAILS</span></div><p>Fotografias ilustrativas de referência. Peças e especificações fictícias.</p></div>
+   <ProductGallery product={product}/>
    <div className="detail-copy"><span className="detail-eyebrow">VÉRTICE / {product.category.toUpperCase()} — 001</span><h1>{product.name}</h1><p className="detail-descriptor">{product.descriptor}</p><strong className="detail-price">{formatPrice(product.price)}</strong><div className="detail-rule"/><p className="detail-story">{stories[product.id]}</p>
-    <AddToBag productId={product.id} sizes={product.sizes}/>
+    <AddToBag productId={product.id} sizes={product.sizes} price={product.price}/>
     <div className="detail-accordions"><details open><summary>DESCRIÇÃO & ACABAMENTO</summary><p>Peça conceitual de curadoria minimalista. As informações e fotografias ilustram a experiência de compra e não representam um item à venda.</p></details><details><summary>GUIA DE MEDIDAS</summary><p>Os tamanhos são demonstrativos. Numa loja real, uma tabela em centímetros ajudaria a escolher o caimento ideal.</p></details><details><summary>FRETE & DEVOLUÇÕES</summary><p>Este é um projeto de portfólio. Não existem transações, estoque, envio ou devoluções reais.</p></details></div>
    </div>
   </section>
