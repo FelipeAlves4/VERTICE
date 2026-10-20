@@ -9,7 +9,7 @@ Um e-commerce conceitual de moda masculina premium criado para demonstrar design
 - Next.js (App Router), React e TypeScript
 - CSS customizado e Lucide Icons
 - Carrinho persistente via `localStorage`
-- Fotografias editoriais externas de alta resolução fornecidas pelo Unsplash com otimização responsiva pelo Next.js
+- Campanha editorial original gerada por IA e salva localmente em WebP de 1024 × 1536 px, otimizada responsivamente com Next.js
 - Fotografias ilustrativas de catálogo do Unsplash
 
 ## Rodar localmente
@@ -36,7 +36,7 @@ Acesse http://localhost:3000. `npm run build` faz o build de produção e `npm r
 - Páginas estáticas de produto em `/produto/[slug]`, com galeria, tamanho e recomendações
 - Sacola compartilhada entre páginas via `localStorage`
 
-- Imagens editoriais de alta resolução na hero, lookbook e campanha
+- Imagens autorais geradas por IA em WebP na hero, lookbook e campanha, com mesma direção de arte
 - Página de produto com galeria navegável e ampliação acessível
 - Layout mobile reforçado para mostrar a fotografia antes da narrativa textual
 - Transições respeitando `prefers-reduced-motion` e nova revisão de UX
@@ -49,9 +49,7 @@ V0.3: autenticação, backend, banco de dados e painel administrativo.
 
 ## Imagens e direitos de uso
 
-Na V0.3.1, as duas fotografias editoriais são do Unsplash, publicadas sob a licença da plataforma, e estão integradas por URL original. A otimização responsiva ocorre pelo Next.js com qualidade 85. Foram escolhidas porque as imagens locais anteriores tinham apenas 410 pixels de largura, gerando ampliação perceptível em telas grandes. Fontes: [editorial em tons de areia](https://unsplash.com/photos/2_IUIVbwpSQ) por Albert Vincent Wu e [editorial escuro](https://unsplash.com/photos/OMqh-pS_jJw) por Venti Views.
-
-
+Na V0.3.2, as imagens principais são fotografias **conceituais geradas por IA**, sem logotipos de terceiros. Dois arquivos WebP (`public/editorial/sand.webp` e `public/editorial/noir.webp`) de 1024 × 1536 px substituem as fotografias Unsplash que estavam desalinhadas com a estética da marca. As roupas exibidas são ilustrações e não necessariamente correspondem aos produtos fictícios cadastrados. As imagens do **catálogo** continuam ilustrativas, provenientes do Unsplash, e devem ser auditadas individualmente antes de reutilização comercial.
 
 Fotografias ilustrativas externas são carregadas de `images.unsplash.com` e pertencem a seus respectivos autores. Verifique a licença e eventuais direitos de imagem de pessoas, logotipos ou marcas antes de reutilizar comercialmente. [Licença Unsplash](https://unsplash.com/license). O Pinterest será utilizado apenas para referências criativas, não como fonte de imagens sem autorização.
 
@@ -60,3 +58,14 @@ Fotografias ilustrativas externas são carregadas de `images.unsplash.com` e per
 - `app/page.tsx`: experiência principal e estados interativos
 - `app/globals.css`: sistema visual responsivo
 - `lib/products.ts`: catálogo fictício tipado
+
+## V0.3.2 — Correção de identidade visual
+
+A V0.3.1 continha um lookbook com camiseta estampada de outra marca e um retrato P&B sem relação com o restante. A correção recupera a direção original: tons de areia/preto, peças sem marcas, arquitetura brutalista e luz quente. As duas novas imagens são versionadas no repositório, evitando dependência de fotografias externas na campanha principal.
+
+### Checklist de revisão
+
+- Abrir a home no desktop e conferir ausência de logos alheios na campanha.
+- Verificar hero, imagem principal do lookbook, segunda imagem do lookbook e campanha.
+- Conferir enquadramento de rosto e roupa no celular e desktop.
+- Testar a sacola e a página de produtos. O catálogo continua com imagens externas ilustrativas.

@@ -47,15 +47,21 @@ button:focus-visible,a:focus-visible{outline:2px solid #b3926d;outline-offset:4p
 }
 
 
-/* Resolution recovery: high-resolution editorial photography, natural crops */
-.hero-photo .cover-photo { object-position: 52% 39% !important; }
-.v2-lb-large img { object-position: 50% 35% !important; }
-.v2-lb-small img { object-position: 50% 28% !important; }
-.campaign-image img { object-position: 50% 32% !important; }
+/* V0.3.2 — Editorial art direction and responsive image framing.
+   Both original 1024x1536 WEBP assets belong to one coherent conceptual campaign.
+   Maintain visibility of the model's face on wide/short containers.
+*/
+.hero-photo .cover-photo { object-position: 50% 11% !important; filter:saturate(.90) !important; }
+.v2-lb-large img { object-position:50% 11% !important; filter:saturate(.92) !important; }
+.v2-lb-small img { object-position:50% 10% !important; filter:saturate(.88) !important; }
+.campaign-image img { object-position: 50% 12% !important; filter:saturate(.92) !important; }
 @media (max-width:800px) {
- .hero-photo .cover-photo { object-position: 50% 31% !important; }
- .v2-lb-large img { object-position: 50% 31% !important; }
+ .hero-photo .cover-photo { object-position:50% 10% !important; }
+ .v2-lb-large img { object-position:50% 10% !important; }
+ .v2-lb-small img { object-position:50% 10% !important; }
+ .campaign-image img { object-position:50% 13% !important; }
 }
 @media (max-width:520px) {
- .hero-photo .cover-photo { object-position: 50% 27% !important; }
+ .hero-photo .cover-photo { object-position:50% 9% !important; }
+ .v2-lb-large img { object-position:50% 9% !important; }
 }

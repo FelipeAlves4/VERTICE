@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "VÉRTICE | Essentials for the Modern Man",
   metadataBase: new URL("https://vertice-eight-omega.vercel.app"),
   description: "VÉRTICE é uma experiência conceitual de e-commerce masculino premium. Uma curadoria feita para quem sabe onde quer chegar.",
-  openGraph: { title: "VÉRTICE — Menos ruído. Mais essência.", description: "Uma nova perspectiva sobre o essencial. Explore a experiência conceitual VÉRTICE.", images: ["https://images.unsplash.com/photo-1611452416875-829749f71d37"], type: "website" },
+  openGraph: { title: "VÉRTICE — Menos ruído. Mais essência.", description: "Uma nova perspectiva sobre o essencial. Explore a experiência conceitual VÉRTICE.", images: ["/editorial/noir.webp"], type: "website" },
   robots: { index: true, follow: true },
 };
 
