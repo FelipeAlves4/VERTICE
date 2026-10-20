@@ -3,9 +3,9 @@
 .v3-edition{font-size:.88em;color:#b6a58e;letter-spacing:1.1px;font-weight:700}
 .v3-photo-note{position:absolute;z-index:2;top:7%;left:7%;padding:9px 11px;border:1px solid rgba(255,255,255,.55);background:rgba(25,25,23,.13);color:#fff;letter-spacing:2px;font-size:9px;font-weight:650;backdrop-filter:blur(4px)}
 .v3-photo-note span{padding-left:16px}
-.hero-photo img{object-position:center 24%!important;filter:saturate(.8) contrast(1.04)!important}
-.campaign-image img{object-position:center 29%;filter:saturate(.84) contrast(1.03)!important}
-.v2-lb-large img,.v2-lb-small img{object-position:center 27%;filter:saturate(.78) contrast(1.03)!important}
+.hero-photo img{object-position:center 24%!important;filter:saturate(.86)!important}
+.campaign-image img{object-position:center 29%;filter:saturate(.9)!important}
+.v2-lb-large img,.v2-lb-small img{object-position:center 27%;filter:saturate(.9)!important}
 .hero-photo::after{content:"";position:absolute;inset:0;border:1px solid rgba(255,255,255,.08);pointer-events:none}
 .hero-photo .cover-photo{animation:v3-photo-entrance 1.15s cubic-bezier(.2,.64,.2,1) both}
 .hero-copy>*{animation:v3-copy-enter .65s both}
@@ -44,4 +44,18 @@ button:focus-visible,a:focus-visible{outline:2px solid #b3926d;outline-offset:4p
 @media (prefers-reduced-motion:reduce){
  .hero-photo .cover-photo,.hero-copy>*{animation:none!important}
  .v2-lb-large img,.v2-lb-small img,.product-image-button img{transition:none!important}
+}
+
+
+/* Resolution recovery: high-resolution editorial photography, natural crops */
+.hero-photo .cover-photo { object-position: 52% 39% !important; }
+.v2-lb-large img { object-position: 50% 35% !important; }
+.v2-lb-small img { object-position: 50% 28% !important; }
+.campaign-image img { object-position: 50% 32% !important; }
+@media (max-width:800px) {
+ .hero-photo .cover-photo { object-position: 50% 31% !important; }
+ .v2-lb-large img { object-position: 50% 31% !important; }
+}
+@media (max-width:520px) {
+ .hero-photo .cover-photo { object-position: 50% 27% !important; }
 }

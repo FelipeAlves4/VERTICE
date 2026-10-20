@@ -9,7 +9,7 @@ Um e-commerce conceitual de moda masculina premium criado para demonstrar design
 - Next.js (App Router), React e TypeScript
 - CSS customizado e Lucide Icons
 - Carrinho persistente via `localStorage`
-- Fotografia editorial original gerada por IA e otimizada para o projeto, em `public/editorial/`
+- Fotografias editoriais externas de alta resolução fornecidas pelo Unsplash com otimização responsiva pelo Next.js
 - Fotografias ilustrativas de catálogo do Unsplash
 
 ## Rodar localmente
@@ -36,7 +36,7 @@ Acesse http://localhost:3000. `npm run build` faz o build de produção e `npm r
 - Páginas estáticas de produto em `/produto/[slug]`, com galeria, tamanho e recomendações
 - Sacola compartilhada entre páginas via `localStorage`
 
-- Novas imagens editoriais originais na hero, lookbook e campanha
+- Imagens editoriais de alta resolução na hero, lookbook e campanha
 - Página de produto com galeria navegável e ampliação acessível
 - Layout mobile reforçado para mostrar a fotografia antes da narrativa textual
 - Transições respeitando `prefers-reduced-motion` e nova revisão de UX
@@ -48,6 +48,10 @@ V0.2.1: refinar a fotografia e testar acessibilidade em dispositivos reais.
 V0.3: autenticação, backend, banco de dados e painel administrativo.
 
 ## Imagens e direitos de uso
+
+Na V0.3.1, as duas fotografias editoriais são do Unsplash, publicadas sob a licença da plataforma, e estão integradas por URL original. A otimização responsiva ocorre pelo Next.js com qualidade 85. Foram escolhidas porque as imagens locais anteriores tinham apenas 410 pixels de largura, gerando ampliação perceptível em telas grandes. Fontes: [editorial em tons de areia](https://unsplash.com/photos/2_IUIVbwpSQ) por Albert Vincent Wu e [editorial escuro](https://unsplash.com/photos/OMqh-pS_jJw) por Venti Views.
+
+
 
 Fotografias ilustrativas externas são carregadas de `images.unsplash.com` e pertencem a seus respectivos autores. Verifique a licença e eventuais direitos de imagem de pessoas, logotipos ou marcas antes de reutilizar comercialmente. [Licença Unsplash](https://unsplash.com/license). O Pinterest será utilizado apenas para referências criativas, não como fonte de imagens sem autorização.
 
