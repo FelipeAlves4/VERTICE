@@ -1,0 +1,47 @@
+
+/* VÉRTICE · 003 — subtle, deliberate movement; editorial first */
+.v3-edition{font-size:.88em;color:#b6a58e;letter-spacing:1.1px;font-weight:700}
+.v3-photo-note{position:absolute;z-index:2;top:7%;left:7%;padding:9px 11px;border:1px solid rgba(255,255,255,.55);background:rgba(25,25,23,.13);color:#fff;letter-spacing:2px;font-size:9px;font-weight:650;backdrop-filter:blur(4px)}
+.v3-photo-note span{padding-left:16px}
+.hero-photo img{object-position:center 24%!important;filter:saturate(.8) contrast(1.04)!important}
+.campaign-image img{object-position:center 29%;filter:saturate(.84) contrast(1.03)!important}
+.v2-lb-large img,.v2-lb-small img{object-position:center 27%;filter:saturate(.78) contrast(1.03)!important}
+.hero-photo::after{content:"";position:absolute;inset:0;border:1px solid rgba(255,255,255,.08);pointer-events:none}
+.hero-photo .cover-photo{animation:v3-photo-entrance 1.15s cubic-bezier(.2,.64,.2,1) both}
+.hero-copy>*{animation:v3-copy-enter .65s both}
+.hero-copy>.hero-index{animation-delay:.09s}.hero-copy>.hero-eyebrow{animation-delay:.16s}.hero-copy>h1{animation-delay:.23s}.hero-copy>.hero-description{animation-delay:.33s}.hero-copy>.hero-cta{animation-delay:.4s}
+.product-photo::before{content:"";inset:0;position:absolute;border:1px solid rgba(30,29,25,.035);pointer-events:none;z-index:1}
+.product-image-button{position:relative;display:block;overflow:hidden}
+.product-image-button img{transition:transform .8s cubic-bezier(.22,.64,.2,1)}
+.product-image-button:hover img{transform:scale(1.065)}
+.category-tabs{scrollbar-width:none}.category-tabs::-webkit-scrollbar{display:none}
+.v2-lb-large img,.v2-lb-small img{transition:transform .8s cubic-bezier(.22,.64,.2,1)}
+.v2-lb-large:hover img,.v2-lb-small:hover img{transform:scale(1.055)}
+button:focus-visible,a:focus-visible{outline:2px solid #b3926d;outline-offset:4px}
+@keyframes v3-photo-entrance{from{opacity:.45;transform:scale(1.07)}to{opacity:1;transform:scale(1)}}
+@keyframes v3-copy-enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:800px){
+ .hero-photo{order:-1;min-height:420px}
+ .hero{display:flex;flex-direction:column}
+ .hero-copy{min-height:0;padding:64px 7% 85px}
+ .hero-index{top:22px}
+ .hero-bottom{bottom:22px}
+ .hero-photo .cover-photo{object-position:center 23%!important}
+ .hero-photo::after{background:linear-gradient(0deg,rgba(0,0,0,.24),transparent 38%);border:0}
+ .v3-photo-note{top:22px;left:6%}
+}
+@media(max-width:520px){
+ .hero-photo{min-height:360px}
+ .hero-copy{min-height:0;padding:67px 6% 72px}
+ .hero h1{font-size:clamp(59px,12vw,81px)}
+ .hero-photo .cover-photo{object-position:center 23%!important}
+ .hero-index{top:20px}
+ .hero-bottom{bottom:18px}
+ .v2-lb-large img,.v2-lb-small img{object-position:center 27%}
+ .v3-photo-note{font-size:8px;letter-spacing:1.2px}
+ .campaign-image{height:430px}
+}
+@media (prefers-reduced-motion:reduce){
+ .hero-photo .cover-photo,.hero-copy>*{animation:none!important}
+ .v2-lb-large img,.v2-lb-small img,.product-image-button img{transition:none!important}
+}
