@@ -22,7 +22,7 @@ npm run dev
 
 Acesse http://localhost:3000. `npm run build` faz o build de produção e `npm run typecheck` verifica TypeScript.
 
-## Experiências da V0.1
+## Experiências da V0.2
 
 - Homepage editorial responsiva, com narrativa da marca e coleções
 - Catálogo com categorias e ordenação
@@ -31,9 +31,13 @@ Acesse http://localhost:3000. `npm run build` faz o build de produção e `npm r
 - Simulação de finalização sem pagamentos reais
 - Cadastro de newsletter demonstrativo (sem capturar/transmitir e-mails)
 
+- Lookbook editorial com mosaico responsivo e narrativa de marca
+- Páginas estáticas de produto em `/produto/[slug]`, com galeria, tamanho e recomendações
+- Sacola compartilhada entre páginas via `localStorage`
+
 ## Próximos passos
 
-V0.2: melhorar ativos de marca e fotografia, imagens autorais e página dedicada para produtos.
+V0.2.1: refinar a fotografia e testar acessibilidade em dispositivos reais.
 V0.3: autenticação, backend, banco de dados e painel administrativo.
 
 ## Imagens e direitos de uso
